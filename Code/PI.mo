@@ -1,9 +1,9 @@
 model PI
   Modelica.Blocks.Math.Add throttleError(k1 = +1, k2 = -1)  annotation(
     Placement(visible = true, transformation(origin = {-95, -9}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
-  Modelica.Blocks.Math.Gain PropGain(k = 2)  annotation(
+  Modelica.Blocks.Math.Gain PropGain(k = 60)  annotation(
     Placement(visible = true, transformation(origin = {-30, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Math.Gain IntGain(k = 1)  annotation(
+  Modelica.Blocks.Math.Gain IntGain(k = 5)  annotation(
     Placement(visible = true, transformation(origin = {-30, -48}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Add add annotation(
     Placement(visible = true, transformation(origin = {110, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
