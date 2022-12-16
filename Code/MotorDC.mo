@@ -13,25 +13,19 @@ model MotorDC
     Placement(visible = true, transformation(origin = {-158, -82}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {90, -88}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealOutput y annotation(
     Placement(visible = true, transformation(origin = {180, 36}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {180, 36}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM pwm annotation(
-    Placement(visible = true, transformation(origin = {-8, -36}, extent = {{-12, -12}, {12, 12}}, rotation = 0)));
   Modelica.Electrical.Analog.Sensors.VoltageSensor voltageSensor annotation(
     Placement(visible = true, transformation(origin = {140, 32}, extent = {{10, 10}, {-10, -10}}, rotation = 270)));
   Modelica.Electrical.Analog.Basic.Inductor inductor(L = 1) annotation(
     Placement(visible = true, transformation(origin = {60, 30}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Mechanics.Rotational.Sources.Torque torque annotation(
     Placement(visible = true, transformation(extent = {{120, -30}, {100, -10}}, rotation = 0)));
+  Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM pwm annotation(
+    Placement(visible = true, transformation(origin = {-8, -36}, extent = {{-12, -12}, {12, 12}}, rotation = 0)));
 equation
   connect(signalVoltage.n, ground.p) annotation(
     Line(points = {{-24, -94}, {8, -94}, {8, -96}}, color = {0, 0, 255}));
   connect(signalVoltage.v, u) annotation(
     Line(points = {{-34, -82}, {-158, -82}}, color = {0, 0, 127}));
-  connect(HBridge.fire_n, pwm.notFire) annotation(
-    Line(points = {{-4, 8}, {0, 8}, {0, -22}}, color = {255, 0, 255}));
-  connect(HBridge.fire_p, pwm.fire) annotation(
-    Line(points = {{-30, 8}, {-16, 8}, {-16, -22}}, color = {255, 0, 255}));
-  connect(signalVoltage.p, pwm.dutyCycle) annotation(
-    Line(points = {{-44, -94}, {-44, -59}, {-22, -59}, {-22, -36}}, color = {0, 0, 255}));
   connect(voltageSensor.v, y) annotation(
     Line(points = {{151, 32}, {180, 32}, {180, 36}}, color = {0, 0, 127}));
   connect(HBridge.dc_p2, inductor.p) annotation(
@@ -52,6 +46,12 @@ equation
     Line(points = {{60, -8}, {6, -8}, {6, 22}}, color = {0, 0, 255}));
   connect(dcpm.pin_an, voltageSensor.p) annotation(
     Line(points = {{60, -8}, {140, -8}, {140, 22}}, color = {0, 0, 255}));
+  connect(signalVoltage.p, pwm.dutyCycle) annotation(
+    Line(points = {{-44, -94}, {-44, -59}, {-22, -59}, {-22, -36}}, color = {0, 0, 255}));
+  connect(HBridge.fire_p, pwm.fire) annotation(
+    Line(points = {{-30, 8}, {-16, 8}, {-16, -22}}, color = {255, 0, 255}));
+  connect(HBridge.fire_n, pwm.notFire) annotation(
+    Line(points = {{-4, 8}, {0, 8}, {0, -22}}, color = {255, 0, 255}));
   annotation(
     uses(Modelica(version = "4.0.0")),
   Diagram);

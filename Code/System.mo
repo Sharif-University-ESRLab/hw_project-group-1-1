@@ -5,7 +5,7 @@ model System
     Placement(visible = true, transformation(origin = {-2, 52}, extent = {{-32, -32}, {32, 32}}, rotation = 0)));
   ThrottleBody throttleBody annotation(
     Placement(visible = true, transformation(origin = {138, 54}, extent = {{-34, -34}, {34, 34}}, rotation = 0)));
-  Modelica.Blocks.Sources.Trapezoid trapezoid(amplitude = 2.5, falling = 0.05, period = 0.2, rising = 0.05, width = 0)  annotation(
+  Modelica.Blocks.Sources.Trapezoid trapezoid(amplitude = 5, falling = 2.5, period = 8, rising = 2.5, width = 0)  annotation(
     Placement(visible = true, transformation(origin = {-210, 94}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(pi.y, motorDC.u) annotation(
