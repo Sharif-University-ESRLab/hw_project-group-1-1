@@ -22,6 +22,6 @@ Then, go to "File" -> "Open Model/Library File" and select all the files you've 
 
 The project is getting compiled and simulated now. after the simulation is completed, on the "Variable Browser" section on the bottom-right side of your screen, click on the little triangle beside "PI". you'll find u1 and u2 with square boxes next to them. u1 is the input and u2 the output. select them and you'll see the input and output drawn.
 
-If you want to learn how to run the project in OpenModelica with more detail, you can watch the video linked below:
+If you want to learn how to run the project in OpenModelica with more detail and also how the system is desinged with each part explained briefly, you can watch the video linked below:
 
 https://drive.google.com/file/d/1K3g6JpC55BCiVtYjkt1NAH0CRbncfd0h/view?usp=drivesdk
